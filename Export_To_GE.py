@@ -218,7 +218,7 @@ class ExportToGE:
         dir = os.getenv('LOCALAPPDATA')
         path = dir + "\\Temp\\"+str(hash)+".kml"
         QgsVectorFileWriter.writeAsVectorFormat(layer,path,'utf-8', layer.crs(),"KML",True)#save selection as kml
-        os.startfile(path)
+        os.startfile(path)#open kml file in Google Earth
         self.iface.mapCanvas().refresh()
 
         if not self.pluginIsActive:
@@ -238,6 +238,6 @@ class ExportToGE:
 
             # show the dockwidget
             # TODO: fix to allow choice of dock location
-            self.iface.addDockWidget(Qt.TopDockWidgetArea, self.dockwidget)
-            self.dockwidget.show()
+            #self.iface.addDockWidget(Qt.TopDockWidgetArea, self.dockwidget)
+            #self.dockwidget.show()
 
